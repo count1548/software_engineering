@@ -12,14 +12,12 @@ export default function Menu() {
                         <a className="navbar-brand" href="#"><img src="images/logo.png" alt="img" className="mobile_logo_width" /></a>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
-                                <NavLink exact to='/' activeClassName="active">
-                                    <li className="nav-item ">
-                                        <a className="nav-link" href="index.html">Home<span className="sr-only">(current)</span></a>
-                                    </li>
-                                </NavLink>
+                                <li className="nav-item ">
+                                    <a className="nav-link" href="/">Home<span className="sr-only">(current)</span></a>
+                                </li>
                                 <NavLink exact to='/contact' activeClassName="active">
                                     <li className="nav-item ">
-                                        <a className="nav-link" href="blog.html">Contact Us<span className="sr-only">(current)</span></a>
+                                        <a className="nav-link" href="blog.html">Regist RSS<span className="sr-only">(current)</span></a>
                                     </li>
                                 </NavLink>
                                 {/* <li className="nav-item active">
