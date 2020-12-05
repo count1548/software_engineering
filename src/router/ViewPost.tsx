@@ -109,7 +109,10 @@ export default function Post(props:any) {
             </div>
         </div>
         <div id="fh5co-title-box"
-            style="background-image: url(images/camila-cordeiro-114636.jpg); background-position: 50% 90.5px;"
+            style={{
+                backgroundImage: 'url(images/camila-cordeiro-114636.jpg)',
+                backgroundPosition: '50% 90.5px',
+            }}
             data-stellar-background-ratio="0.5">
             <div className="overlay"></div>
             <div className="page-title">
