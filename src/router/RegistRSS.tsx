@@ -1,18 +1,11 @@
 import {useState, useEffect} from 'react'
 import {isLogin, getInfo} from '../func/Auth'
 
-let RSS:string = '',
-    email:string = '', 
-    name:string = '', 
-    rssName:string = ''
+let rssName:string = '',
+    rssURL:string = ''
 
 
 export default function ContactUs(props: any) {
-    if(isLogin()) {
-        const info = getInfo()
-        email = info.email
-        name = info.name
-    }
     const onSubmit = () => {
         
     }
@@ -22,7 +15,7 @@ export default function ContactUs(props: any) {
                 <div className="container">
                     <div className="row">
                         <a href="#" className="fh5co_con_123"><i className="fa fa-home"></i></a>
-                        <a href="#" className="fh5co_con pt-2"> Contact Us </a>
+                        <a href="#" className="fh5co_con pt-2"> Regist RSS </a>
                     </div>
                 </div>
             </div>
@@ -72,22 +65,16 @@ export default function ContactUs(props: any) {
             <div className="container-fluid mb-4">
                 <div className="container">
                     <div className="col-12 text-center contact_margin_svnit ">
-                        <div className="text-center fh5co_heading py-2">Contact Us</div>
+                        <div className="text-center fh5co_heading py-2">Regist RSS</div>
                     </div>
                     <div className="row">
                         <div className="col-12">
                             <form className="row" id="fh5co_contact_form">
                                 <div className="col-12 py-3">
-                                    <input type="text" className="form-control fh5co_contact_text_box" placeholder="Enter Your Name" value={name}/>
-                                </div>
-                                <div className="col-6 py-3">
-                                    <input type="text" className="form-control fh5co_contact_text_box" placeholder="E-mail" value={email} />
-                                </div>
-                                <div className="col-6 py-3">
-                                    <input type="text" className="form-control fh5co_contact_text_box" placeholder="rssName"  value={rssName}/>
+                                    <input type="text" className="form-control fh5co_contact_text_box" placeholder="Enter RSS Name" value={rssName}/>
                                 </div>
                                 <div className="col-12 py-3">
-                                    <textarea className="form-control fh5co_contacts_message" placeholder="Message"></textarea>
+                                    <input type="text" className="form-control fh5co_contact_text_box" placeholder="Enter RSS URL" value={rssURL}/>
                                 </div>
                                 <div className="col-12 py-3 text-center"> <a href="#" className="btn contact_btn">Send Message</a> </div>
                             </form>

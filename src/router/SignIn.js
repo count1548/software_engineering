@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignInSide() {
+export default function SignInSide(props) {
     const classes = useStyles();
 
     return (
@@ -105,9 +105,11 @@ export default function SignInSide() {
                             variant="contained"
                             color="primary"
                             className={classes.submit}
-                        >
-                            Sign In
-            </Button>
+                            onClick={(ev) => {
+                                ev.preventDefault()
+                                window.location.replace('/')
+                            } }
+                        >Sign In</Button>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">

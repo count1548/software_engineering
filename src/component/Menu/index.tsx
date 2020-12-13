@@ -15,36 +15,16 @@ export default function Menu() {
                                 <li className="nav-item ">
                                     <a className="nav-link" href="/">Home<span className="sr-only">(current)</span></a>
                                 </li>
-                                <NavLink exact to='/contact' activeClassName="active">
+                                <NavLink exact to='/regist' activeClassName="active">
                                     <li className="nav-item ">
                                         <a className="nav-link" href="blog.html">Regist RSS<span className="sr-only">(current)</span></a>
                                     </li>
                                 </NavLink>
-                                {/* <li className="nav-item active">
-                                    <a className="nav-link" href="index.html">Home <span className="sr-only">(current)</span></a>
-                                </li>
-                                
-                                <li className="nav-item ">
-                                    <a className="nav-link" href="single.html">Single <span className="sr-only">(current)</span></a>
-                                </li> */}
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="dropdownMenuButton2" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">World <span className="sr-only">(current)</span></a>
-                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                                        <a className="dropdown-item" href="#">Action in</a>
-                                        <a className="dropdown-item" href="#">Another action</a>
-                                        <a className="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropdown-toggle" href="#" id="dropdownMenuButton3" data-toggle="dropdown"
-                                        aria-haspopup="true" aria-expanded="false">Community<span className="sr-only">(current)</span></a>
-                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink_1">
-                                        <a className="dropdown-item" href="#">Action in</a>
-                                        <a className="dropdown-item" href="#">Another action</a>
-                                        <a className="dropdown-item" href="#">Something else here</a>
-                                    </div>
-                                </li>
+                                <NavLink exact to='/contact' activeClassName="active">
+                                    <li className="nav-item ">
+                                        <a className="nav-link" href="blog.html">Contact Us<span className="sr-only">(current)</span></a>
+                                    </li>
+                                </NavLink>
                             </ul>
                         </div>
                     </nav>

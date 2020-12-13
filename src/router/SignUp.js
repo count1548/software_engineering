@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SignUp() {
+export default function SignUp(props) {
     const classes = useStyles();
 
     return (
@@ -120,9 +120,8 @@ export default function SignUp() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                    >
-                        Sign Up
-          </Button>
+                        onClick={() => props.history.push('/login') }
+                    >Sign Up</Button>
                     <Grid container justify="flex-end">
                         <Grid item>
                             <Link href="#" variant="body2">
