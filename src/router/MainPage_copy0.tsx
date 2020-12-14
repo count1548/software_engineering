@@ -1,11 +1,10 @@
 /*eslint-disable*/
 import { useState, useEffect } from 'react'
 import ImgText from '../component/viewImage/InnerTextImg'
-import SliderPost from '../component/viewImage/SliderPost'
 import Loading from '@material-ui/core/CircularProgress';
 let newsData:Object|null = null
 
-async function getData(let categry:string) {
+async function getData() {
 	const headLine = await getAPI(),
 		  category = await getAPI(),
 		  recently = await getAPI()
@@ -13,8 +12,8 @@ async function getData(let categry:string) {
 }
 
 export default function MainPage() {
-	const [category, setCategory] = useState('')
-    useEffect(() => getData(category).then(res => newsData = res), [category])
+
+    useEffect(() => getData().then(res => newsData = res), [])
 
     return (
         (newsData === null) ? <div style={{ width: '300px', margin: '30px auto' }}><Loading size={200} /></div>
@@ -27,22 +26,70 @@ export default function MainPage() {
 							date = {newsData['headline'][0]['date']}>
 							{newsData['headline'][0]['title']}
 						</ImgText>
+                        <div className="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
+                            <div className="fh5co_suceefh5co_height"><img src={newsData['headline'][0]['img']} alt="img" />
+                                <div className="fh5co_suceefh5co_height_position_absolute"></div>
+                                <div className="fh5co_suceefh5co_height_position_absolute_font">
+                                    <div className=""><a href="#" className="color_fff">
+										<i className="fa fa-clock-o"></i>&nbsp;&nbsp;{newsData['headline'][0]['date']}
+                                	</a></div>
+                                    <div className=""><a href="single.html" className="fh5co_good_font">
+										{newsData['headline'][0]['title']}
+									</a></div>
+                                </div>
+                            </div>
+                        </div>
                         <div className="col-md-6">
                             <div className="row">
-								{() => {
-									var objList = []
-									for(var cnt = 1; cnt <= 4; cnt++) {
-										objList.push(
-										<ImgText
-											type = 'sub'
-											img = {newsData['headline'][cnt]['image']}
-											date = {newsData['headline'][cnt]['date']}
-											key = {cnt} >
-											{newsData['headline'][cnt]['title']}
-										</ImgText>)
-									}
-									return objList
-								}}
+                                <div className="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                                    <div className="fh5co_suceefh5co_height_2"><img src={newsData['headline'][1]['img']} alt="img" />
+                                        <div className="fh5co_suceefh5co_height_position_absolute"></div>
+                                        <div className="fh5co_suceefh5co_height_position_absolute_font_2">
+                                            <div className=""><a href="#" className="color_fff"> 
+												<i className="fa fa-clock-o"></i>&nbsp;&nbsp;{newsData['headline'][1]['date']}
+											</a></div>
+                                            <div className=""><a href="single.html" className="fh5co_good_font_2">
+												{newsData['headline'][1]['title']}
+											</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                                    <div className="fh5co_suceefh5co_height_2"><img src={newsData['headline'][2]['img']} alt="img" />
+                                        <div className="fh5co_suceefh5co_height_position_absolute"></div>
+                                        <div className="fh5co_suceefh5co_height_position_absolute_font_2">
+                                            <div className=""><a href="#" className="color_fff"> 
+												<i className="fa fa-clock-o"></i>&nbsp;&nbsp;{newsData['headline'][2]['date']}
+											</a></div>
+                                            <div className=""><a href="single.html" className="fh5co_good_font_2">
+												{newsData['headline'][2]['title']}
+											</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                                    <div className="fh5co_suceefh5co_height_2"><img src="images/ryan-moreno-98837.jpg" alt="img" />
+                                        <div className="fh5co_suceefh5co_height_position_absolute"></div>
+                                        <div className="fh5co_suceefh5co_height_position_absolute_font_2">
+                                            <div className=""><a href="#" className="color_fff">
+												<i className="fa fa-clock-o"></i>&nbsp;&nbsp;Oct 28,2017
+											</a></div>
+                                            <div className=""><a href="single.html" className="fh5co_good_font_2">
+												After all is said and done, more is said than done
+											</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                                    <div className="fh5co_suceefh5co_height_2"><img src="images/10-1-1-875x500.jpg" alt="img" />
+                                        <div className="fh5co_suceefh5co_height_position_absolute"></div>
+                                        <div className="fh5co_suceefh5co_height_position_absolute_font_2">
+                                            <div className=""><a href="#" className="color_fff"> <i className="fa fa-clock-o"></i>&nbsp;&nbsp;Oct
+                                28,2017 </a></div>
+                                            <div className=""><a href="single.html" className="fh5co_good_font_2"> After all is said and done, more is said... </a></div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -53,19 +100,42 @@ export default function MainPage() {
                             <div className="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
                         </div>
                         <div className="owl-carousel owl-theme" id="slider2">
-                            {() => {
-								var objList = []
-								for(var cnt = 0; cnt < 4; cnt++) {
-									objList.push(
-									<SliderPost
-										img = {newsData['recently'][cnt]['image']}
-										date = {newsData['recently'][cnt]['date']}
-										key = {cnt} >
-										{newsData['headline'][cnt]['title']}
-									</SliderPost>)
-								}
-								return objList
-							}}
+                            <div className="item px-2">
+                                <div className="fh5co_hover_news_img">
+                                    <div className="fh5co_news_img"><img src="images/39-324x235.jpg" alt="" /></div>
+                                    <div>
+                                        <a href="single.html" className="d-block fh5co_small_post_heading"><span className="">The top 10 best computer speakers in the market</span></a>
+                                        <div className="c_g"><i className="fa fa-clock-o"></i> Oct 16,2017</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="item px-2">
+                                <div className="fh5co_hover_news_img">
+                                    <div className="fh5co_news_img"><img src="images/joe-gardner-75333.jpg" alt="" /></div>
+                                    <div>
+                                        <a href="single.html" className="d-block fh5co_small_post_heading"><span className="">The top 10 best computer speakers in the market</span></a>
+                                        <div className="c_g"><i className="fa fa-clock-o"></i> Oct 16,2017</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="item px-2">
+                                <div className="fh5co_hover_news_img">
+                                    <div className="fh5co_news_img"><img src="images/ryan-moreno-98837.jpg" alt="" /></div>
+                                    <div>
+                                        <a href="single.html" className="d-block fh5co_small_post_heading"><span className="">The top 10 best computer speakers in the market</span></a>
+                                        <div className="c_g"><i className="fa fa-clock-o"></i> Oct 16,2017</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="item px-2">
+                                <div className="fh5co_hover_news_img">
+                                    <div className="fh5co_news_img"><img src="images/seth-doyle-133175.jpg" alt="" /></div>
+                                    <div>
+                                        <a href="single.html" className="d-block fh5co_small_post_heading"><span className="">The top 10 best computer speakers in the market</span></a>
+                                        <div className="c_g"><i className="fa fa-clock-o"></i> Oct 16,2017</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -157,15 +227,18 @@ export default function MainPage() {
                                 </div>
                                 <div className="clearfix"></div>
                                 <div className="fh5co_tags_all">
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('business')}>Business</a>
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('technology')}>Technology</a>
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('sport')}>Sport</a>
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('art')}>Art</a>
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('lifestyle')}>Lifestyle</a>
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('three')}>Three</a>
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('photography')}>Photography</a>
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('education')}>Education</a>
-                                    <a href="#" className="fh5co_tagg" onClick={()=>setCategory('social')}>Social</a>
+                                    <a href="#" className="fh5co_tagg">Business</a>
+                                    <a href="#" className="fh5co_tagg">Technology</a>
+                                    <a href="#" className="fh5co_tagg">Sport</a>
+                                    <a href="#" className="fh5co_tagg">Art</a>
+                                    <a href="#" className="fh5co_tagg">Lifestyle</a>
+                                    <a href="#" className="fh5co_tagg">Three</a>
+                                    <a href="#" className="fh5co_tagg">Photography</a>
+                                    <a href="#" className="fh5co_tagg">Lifestyle</a>
+                                    <a href="#" className="fh5co_tagg">Art</a>
+                                    <a href="#" className="fh5co_tagg">Education</a>
+                                    <a href="#" className="fh5co_tagg">Social</a>
+                                    <a href="#" className="fh5co_tagg">Three</a>
                                 </div>
                                 <div>
                                     <div className="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
